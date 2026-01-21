@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Javanese text, Impact;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* LANGUAGE BUTTON */
+#langToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* GLITCH LOGO */
+.glitch {
+  position: relative;
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: rgb(63, 63, 63);
+  animation: glitch 2s infinite;
+}
+
+.glitch::after {
+  color: rgb(224, 167, 60);
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+#intro p {
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+/* MAIN */
+#main {
+  opacity: 0;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: 1px solid rgb(224, 167, 60);
+  color: rgb(224, 167, 60);
+  text-decoration: none;
+}
+<div class="glitch-container">
+  <div class="glitch" data-text="TSC">TSC</div>
+</div>
+/* Fixed rectangle around the glitch text */
+.glitch-container {
+  display: inline-block;      /* fits border tightly around content */
+  border: 2px solid white;    /* the rectangle */
+  padding: 10px 20px;         /* space between text and border */
+}
+
+/* Your existing glitch effect stays the same */
+.glitch {
+  position: relative;
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: rgb(75, 75, 75);
+  animation: glitch 2s infinite;
+}
+
+.glitch::after {
+  color: rgb(236, 165, 34);
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
