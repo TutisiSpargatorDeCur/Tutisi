@@ -1,144 +1,396 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Javanese text, Impact;
-}
-
-body {
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* LANGUAGE BUTTON */
-#langToggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 6px 12px;
-  cursor: pointer;
-  z-index: 20;
-}
-
-/* INTRO */
-#intro {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-/* GLITCH LOGO */
-.glitch {
-  position: relative;
-  font-size: 4rem;
-  letter-spacing: 0.4rem;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.glitch::before {
-  color: rgb(63, 63, 63);
-  animation: glitch 2s infinite;
-}
-
-.glitch::after {
-  color: rgb(224, 167, 60);
-  animation: glitch 1.5s infinite;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-#intro p {
-  margin-top: 10px;
-  opacity: 0.6;
-}
-
-/* MAIN */
-#main {
-  opacity: 0;
-}
-
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  border: 1px solid rgb(224, 167, 60);
-  color: rgb(224, 167, 60);
-  text-decoration: none;
-}
-<div class="glitch-container">
-  <div class="glitch" data-text="TSC">TSC</div>
-</div>
-/* Fixed rectangle around the glitch text */
-.glitch-container {
-  display: inline-block;      /* fits border tightly around content */
-  border: 2px solid white;    /* the rectangle */
-  padding: 10px 20px;         /* space between text and border */
-}
-
-/* Your existing glitch effect stays the same */
-.glitch {
-  position: relative;
-  font-size: 4rem;
-  letter-spacing: 0.4rem;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.glitch::before {
-  color: rgb(75, 75, 75);
-  animation: glitch 2s infinite;
-}
-
-.glitch::after {
-  color: rgb(236, 165, 34);
-  animation: glitch 1.5s infinite;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/style.css b/style.css
+index 66b965bd876407476e3ded570c9a969568fbd708..2fa1a0aafa1d9cdbd05c09002fa0c41906491e36 100644
+--- a/style.css
++++ b/style.css
+@@ -1,144 +1,243 @@
+-* {
+-  margin: 0;
+-  padding: 0;
+-  box-sizing: border-box;
+-  font-family: Javanese text, Impact;
+-}
+-
+-body {
+-  background: black;
+-  color: white;
+-  overflow-x: hidden;
+-}
+-
+-/* LANGUAGE BUTTON */
+-#langToggle {
+-  position: fixed;
+-  top: 20px;
+-  right: 20px;
+-  background: transparent;
+-  border: 1px solid white;
+-  color: white;
+-  padding: 6px 12px;
+-  cursor: pointer;
+-  z-index: 20;
+-}
+-
+-/* INTRO */
+-#intro {
+-  position: fixed;
+-  inset: 0;
+-  background: black;
+-  display: flex;
+-  flex-direction: column;
+-  align-items: center;
+-  justify-content: center;
+-  z-index: 10;
+-}
+-
+-/* GLITCH LOGO */
+-.glitch {
+-  position: relative;
+-  font-size: 4rem;
+-  letter-spacing: 0.4rem;
+-}
+-
+-.glitch::before,
+-.glitch::after {
+-  content: attr(data-text);
+-  position: absolute;
+-  left: 0;
+-  top: 0;
+-  width: 100%;
+-  opacity: 0.8;
+-}
+-
+-.glitch::before {
+-  color: rgb(63, 63, 63);
+-  animation: glitch 2s infinite;
+-}
+-
+-.glitch::after {
+-  color: rgb(224, 167, 60);
+-  animation: glitch 1.5s infinite;
+-}
+-
+-@keyframes glitch {
+-  0% { transform: translate(0); }
+-  20% { transform: translate(-2px, 2px); }
+-  40% { transform: translate(-2px, -2px); }
+-  60% { transform: translate(2px, 2px); }
+-  80% { transform: translate(2px, -2px); }
+-  100% { transform: translate(0); }
+-}
+-
+-#intro p {
+-  margin-top: 10px;
+-  opacity: 0.6;
+-}
+-
+-/* MAIN */
+-#main {
+-  opacity: 0;
+-}
+-
+-.hero {
+-  height: 100vh;
+-  display: flex;
+-  flex-direction: column;
+-  align-items: center;
+-  justify-content: center;
+-}
+-
+-.btn {
+-  margin-top: 20px;
+-  padding: 12px 24px;
+-  border: 1px solid rgb(224, 167, 60);
+-  color: rgb(224, 167, 60);
+-  text-decoration: none;
+-}
+-<div class="glitch-container">
+-  <div class="glitch" data-text="TSC">TSC</div>
+-</div>
+-/* Fixed rectangle around the glitch text */
+-.glitch-container {
+-  display: inline-block;      /* fits border tightly around content */
+-  border: 2px solid white;    /* the rectangle */
+-  padding: 10px 20px;         /* space between text and border */
+-}
+-
+-/* Your existing glitch effect stays the same */
+-.glitch {
+-  position: relative;
+-  font-size: 4rem;
+-  letter-spacing: 0.4rem;
+-}
+-
+-.glitch::before,
+-.glitch::after {
+-  content: attr(data-text);
+-  position: absolute;
+-  left: 0;
+-  top: 0;
+-  width: 100%;
+-  opacity: 0.8;
+-}
+-
+-.glitch::before {
+-  color: rgb(75, 75, 75);
+-  animation: glitch 2s infinite;
+-}
+-
+-.glitch::after {
+-  color: rgb(236, 165, 34);
+-  animation: glitch 1.5s infinite;
+-}
+-
+-@keyframes glitch {
+-  0% { transform: translate(0); }
+-  20% { transform: translate(-2px, 2px); }
+-  40% { transform: translate(-2px, -2px); }
+-  60% { transform: translate(2px, 2px); }
+-  80% { transform: translate(2px, -2px); }
+-  100% { transform: translate(0); }
+-}
++:root {
++  --bg: #0c0c0f;
++  --card: #16181d;
++  --line: #2a2d35;
++  --text: #f3f3f4;
++  --muted: #b7bcc6;
++  --accent: #f0b248;
++  --danger: #ff7f8c;
++}
++
++* {
++  box-sizing: border-box;
++}
++
++body {
++  margin: 0;
++  font-family: Inter, Arial, sans-serif;
++  background: var(--bg);
++  color: var(--text);
++}
++
++.site-header {
++  position: sticky;
++  top: 0;
++  z-index: 10;
++  display: flex;
++  justify-content: space-between;
++  align-items: center;
++  padding: 12px 18px;
++  border-bottom: 1px solid var(--line);
++  background: rgba(12, 12, 15, 0.92);
++  backdrop-filter: blur(4px);
++}
++
++.brand {
++  margin: 0;
++  font-size: 1rem;
++  letter-spacing: 0.08em;
++}
++
++.cart-pill {
++  border: 1px solid var(--accent);
++  color: var(--accent);
++  border-radius: 999px;
++  background: transparent;
++  padding: 8px 12px;
++  font-weight: 700;
++  cursor: pointer;
++}
++
++.page {
++  max-width: 1080px;
++  margin: 0 auto;
++  padding: 22px 16px 34px;
++}
++
++.screen {
++  display: none;
++}
++
++.screen.active {
++  display: block;
++}
++
++.muted {
++  color: var(--muted);
++  margin-top: 0;
++}
++
++.album-list {
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++  gap: 16px;
++}
++
++.album-card {
++  background: var(--card);
++  border: 1px solid var(--line);
++  border-radius: 12px;
++  overflow: hidden;
++}
++
++.album-cover {
++  width: 100%;
++  aspect-ratio: 1 / 1;
++  object-fit: cover;
++  display: block;
++  background: #111;
++}
++
++.album-body {
++  padding: 12px;
++}
++
++.album-title {
++  margin: 0 0 8px;
++}
++
++.album-price {
++  margin: 0 0 12px;
++  color: var(--accent);
++  font-weight: 700;
++}
++
++.solid-btn,
++.ghost-btn,
++.qty-btn,
++.remove-btn {
++  border-radius: 9px;
++  font-weight: 700;
++  cursor: pointer;
++}
++
++.solid-btn {
++  border: 0;
++  background: var(--accent);
++  color: #15120a;
++  padding: 10px 14px;
++}
++
++.solid-btn:disabled {
++  opacity: 0.45;
++  cursor: not-allowed;
++}
++
++.ghost-btn {
++  border: 1px solid var(--line);
++  color: var(--text);
++  background: transparent;
++  padding: 8px 12px;
++}
++
++.screen-header {
++  display: flex;
++  justify-content: space-between;
++  align-items: center;
++  gap: 8px;
++}
++
++.empty {
++  color: var(--muted);
++  border: 1px dashed var(--line);
++  border-radius: 10px;
++  padding: 14px;
++}
++
++.cart-rows {
++  margin-top: 8px;
++}
++
++.cart-row {
++  display: grid;
++  grid-template-columns: 68px 1fr auto;
++  align-items: center;
++  gap: 10px;
++  padding: 12px 0;
++  border-bottom: 1px solid var(--line);
++}
++
++.cart-row img {
++  width: 68px;
++  height: 68px;
++  object-fit: cover;
++  border-radius: 8px;
++}
++
++.cart-name {
++  margin: 0 0 6px;
++}
++
++.cart-price {
++  margin: 0;
++  color: var(--muted);
++}
++
++.qty-wrap {
++  margin-top: 8px;
++  display: inline-flex;
++  align-items: center;
++  gap: 8px;
++}
++
++.qty-btn {
++  border: 1px solid #4a4e58;
++  background: transparent;
++  color: var(--text);
++  width: 28px;
++  height: 28px;
++}
++
++.remove-btn {
++  border: 1px solid #7a4048;
++  color: var(--danger);
++  background: transparent;
++  padding: 6px 10px;
++}
++
++.summary-box {
++  margin: 14px 0;
++  border-top: 1px solid var(--line);
++  padding-top: 12px;
++}
++
++.summary-total {
++  font-size: 1.08rem;
++}
++
++.checkout-form {
++  max-width: 620px;
++  display: grid;
++  gap: 10px;
++}
++
++.checkout-form label {
++  display: grid;
++  gap: 6px;
++}
++
++.checkout-form input,
++.checkout-form select {
++  border: 1px solid var(--line);
++  border-radius: 8px;
++  background: #101217;
++  color: var(--text);
++  padding: 10px;
++}
++
++.columns-2 {
++  display: grid;
++  grid-template-columns: 1fr 1fr;
++  gap: 10px;
++}
++
++.success {
++  color: #88db95;
++  margin-top: 14px;
++}
++
++@media (max-width: 700px) {
++  .columns-2 {
++    grid-template-columns: 1fr;
++  }
++}
+ 
+EOF
+)
