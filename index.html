@@ -1,187 +1,191 @@
-diff --git a/index.html b/index.html
-index 5d3d7a654266070317756524171d69fd7ac9010f..b71b56245587740e28282dc31f94daa22105301a 100644
---- a/index.html
-+++ b/index.html
-@@ -1,77 +1,105 @@
--<!DOCTYPE html>
--<html lang="ro">
--<head>
--  <meta charset="UTF-8" />
--  <title>TUTISISPARGATORDECUR</title>
--  <link rel="stylesheet" href="style.css" />
--  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
--</head>
--<body>
--
--<!-- LANGUAGE SWITCH -->
--<button id="langToggle">EN</button>
--
--<!-- INTRO -->
--<div id="intro">
--  <h1 class="glitch" data-text="TSC">TSC</h1>
--  <p data-ro="Pula mica. Visuri mari."
--     data-en="Little dick. Big dreams.">
--     Pula mica. Visuri mari.
--  </p>
--</div>
--
--<!-- MAIN -->
--<main id="main">
--  <section class="hero">
--    <h2 data-ro="MAGAZIN CD"
--        data-en="CD STORE">
--        MAGAZIN CD
--    </h2>
--
--    <a href="https://instagram.com/tutisispargatordecur/
--       target="_blank"
--       class="btn"
--       data-ro="COMANDĂ PE INSTAGRAM"
--       data-en="ORDER VIA INSTAGRAM">
--       COMANDĂ PE INSTAGRAM
--    </a>
--  </section>
--
--  <section class="products">
--    <div class="card">
--      <img src="cd.jpg" alt="CD">
--      <h3 data-ro="Album Nume"
--          data-en="Album Name">
--          Album Nume
--      </h3>
--      <p>€15</p>
--    </div>
--  </section>
--</main>
--
--<script src="script.js"></script>
--</body>
--</html><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script><link rel="stylesheet" href="style.css">
--<script src="script.js"></script>
--<link rel="stylesheet" href="style.css">
--<script src="script.js"></script>
--<link rel="stylesheet" href="style.css">
--<script src="script.js"></script>
--<link rel="stylesheet" href="style.css">
--<script src="script.js"></script>
--<link rel="stylesheet" href="style.css">
--<script src="script.js"></script>
-+<!doctype html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8">
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-+  <title>Tutisi CD Shop</title>
-+  <link rel="stylesheet" href="style.css">
-+</head>
-+<body>
-+  <header class="site-header">
-+    <h1 class="brand">TUTISI CD SHOP</h1>
-+    <button id="openCartBtn" class="cart-pill" aria-label="Open cart">
-+      🛒 <span id="cartCount">0</span>
-+    </button>
-+  </header>
-+
-+  <main class="page">
-+    <section id="storeScreen" class="screen active" aria-labelledby="storeTitle">
-+      <h2 id="storeTitle">Albums</h2>
-+      <p class="muted">Buy directly from this website.</p>
-+      <div id="albumList" class="album-list"></div>
-+    </section>
-+
-+    <section id="cartScreen" class="screen" aria-labelledby="cartTitle" aria-hidden="true">
-+      <div class="screen-header">
-+        <h2 id="cartTitle">Your cart</h2>
-+        <button data-go="store" class="ghost-btn">Back to store</button>
-+      </div>
-+
-+      <div id="cartEmpty" class="empty">Your cart is empty.</div>
-+      <div id="cartRows" class="cart-rows"></div>
-+
-+      <div class="summary-box">
-+        <p>Subtotal: <strong id="subtotal">€0.00</strong></p>
-+        <p>Transport fee: <strong id="shipping">€5.00</strong></p>
-+        <p class="summary-total">Total: <strong id="total">€0.00</strong></p>
-+      </div>
-+
-+      <button id="goCheckoutBtn" class="solid-btn" disabled>Buy</button>
-+    </section>
-+
-+    <section id="checkoutScreen" class="screen" aria-labelledby="checkoutTitle" aria-hidden="true">
-+      <div class="screen-header">
-+        <h2 id="checkoutTitle">Checkout details</h2>
-+        <button data-go="cart" class="ghost-btn">Back to cart</button>
-+      </div>
-+
-+      <form id="checkoutForm" class="checkout-form">
-+        <label>
-+          Full name
-+          <input name="fullName" required>
-+        </label>
-+
-+        <label>
-+          Phone number
-+          <input name="phone" required>
-+        </label>
-+
-+        <label>
-+          Email
-+          <input type="email" name="email" required>
-+        </label>
-+
-+        <label>
-+          Street address
-+          <input name="address" required>
-+        </label>
-+
-+        <div class="columns-2">
-+          <label>
-+            City
-+            <input name="city" required>
-+          </label>
-+
-+          <label>
-+            Postal code
-+            <input name="postalCode" required>
-+          </label>
-+        </div>
-+
-+        <label>
-+          Country
-+          <input name="country" required>
-+        </label>
-+
-+        <label>
-+          Payment method
-+          <select name="payment" required>
-+            <option value="">Select one</option>
-+            <option value="card">Card</option>
-+            <option value="bank">Bank transfer</option>
-+            <option value="cod">Cash on delivery</option>
-+          </select>
-+        </label>
-+
-+        <button type="submit" class="solid-btn">Place order</button>
-+      </form>
-+
-+      <p id="checkoutMessage" class="success" aria-live="polite"></p>
-+    </section>
-+  </main>
-+
-+  <script src="script.js"></script>
-+</body>
-+</html>
+<html> 
+    <head>
+    <body>
+        <center>
+            
+            <br>
+            <br>
+            
+<a href="index.html">
+    <img src="https://cdn.corenexis.com/f/epYUIZH3uo2.png" width="200">
+</a>
+        </center>
+        <img href="index.html"
+        <br>
+        <br>
+        <br> 
+        <center>
+            <br>
+            <br>
+        <font size="200"
+        <h class="h1" >TUTISISPARGATORDECUR</h>
+        </center>
+        <style>
+            .h1 {
+            font-family: Arial;
+            font-weight: 900;
+            font-size: 100px;
+            color: white;
+            }
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        background:
+            linear-gradient(
+                to top,
+                black 0%,
+                black 9%,
+                transparent 9%,
+                transparent 100%
+            ),
+            url("https://cdn.corenexis.com/f/7DtemlnkcOA.png");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+
+        </style>
+       </font>
+    </body>
+</html>
+<!--shit bar-->
+<Center>
+    <style>
+    a {
+        color: white;
+        font-family: Arial;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 40px;
+    }
+</style>
+<br>
+<div style="display: flex; gap: 55px; justify-content: center;">
+    <a href="about.html">ABOUT</a>
+    <a href="store.html">STORE</a>
+    <a href="contact.html">CONTACT</a>
+</div>
+
+</Center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<div style="text-align: center;">
+    <a href="https://open.spotify.com/artist/6SVHdw4tD2SlzFR6b2FZDS?si=Ng4IeLiiQe6DrTbJXZ9y-Q"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fa-brands fa-spotify" style="font-size:30px;"></i>
+    </a>
+<a href="https://music.apple.com/us/artist/tutisispargatordecur/1886129728" target="_blank">
+    <i class="fas fa-music" style="font-size:30px;"></i>
+</a>
+<a href="https://www.instagram.com/tutisispargatordecur/" target="_blank">
+    <i class="fa-brands fa-instagram" style="font-size:30px;"></i>
+</a>
+<a href="https://www.youtube.com/@TutisiSpargatorDeCurOficial" target="_blank">
+    <i class="fa-brands fa-youtube" style="font-size:30px;"></i>
+</a>
+</div>
+</center>
+<center>
+<br>
+<br>
+</center>
+</head> 
